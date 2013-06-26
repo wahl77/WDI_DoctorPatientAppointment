@@ -1,0 +1,6 @@
+= form_for @person do |f|
+  = f.label :name
+  = f.text_field :name
+  = select_tag(:type, options_for_select([['Doctor', 'Doctor'], ['Patient', 'Patient']]))
+  = f.submit
+  

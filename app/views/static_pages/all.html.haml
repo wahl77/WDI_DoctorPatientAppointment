@@ -1,0 +1,31 @@
+%h1
+  Doctors
+  
+- @doctors.each do |doctor|
+  = doctor.name
+  = link_to "Edit", edit_person_path(doctor)
+  = link_to "Delete", person_path(doctor), method: :delete
+  %br
+
+%h1 
+  Patients
+- @patients.each do |patient|
+  = patient.name
+  = link_to "Edit", edit_person_path(patient)
+  = link_to "Delete", person_path(patient), method: :delete
+  %br  
+  
+= link_to "Add Person", new_person_path
+
+%h1
+  Appointments
+- @appointments.each do |appointment|
+  = appointment.doctor.name
+  = appointment.patient.name
+  = appointment.start_time
+  = appointment.end_time
+  = link_to "Edit", edit_appointment_path(appointment)
+  = link_to "Delete", appointment_path(appointment), method: :delete
+  %br
+  
+= link_to "Add", new_appointment_path

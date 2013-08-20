@@ -1,12 +1,12 @@
-- doctors = Doctor.all.map { |doctor| [doctor.name, doctor.id.to_s] }
-- patients = Patient.all.map { |patient| [patient.name, patient.id.to_s] }
+- doctors = Doctor.all.map { |doctor| [doctor.name, doctor.id] }
+- patients = Patient.all.map { |patient| [patient.name, patient.id] }
 
 = form_for (@appointment) do |f|
-  = f.label :doctor
-  = select_tag("appointment[doctor_id]", options_for_select(doctors))
+  = f.label :doctor_id
+  = f.select(:doctor_id, options_for_select(doctors))
   %br
   = f.label :patient
-  = select_tag("appointment[patient_id]", options_for_select(patients))
+  = f.select(:patient_id, options_for_select(patients))
   %br
   
   = f.label :start_time
